@@ -9,7 +9,7 @@ Instead I am a server Kai and my power tools are for web application servers not
 
 Enjoy!
 
-## Sublime Text
+# Sublime Text
 
 Imagine giving Beethoven [this piano](http://www.amazon.co.uk/LeapFrog-19204-Poppin-Play-Piano/dp/B00804BDE0/ref=sr_1_2?ie=UTF8&qid=1375516681&sr=8-2&keywords=toy+piano) upon which to compose the 5th.
 
@@ -17,9 +17,9 @@ Now - if as a programmer you do not have the BEST text editor, you might as well
 
 IMHO [Sublime Text](http://www.sublimetext.com/) is [this piano](http://georgepianoworld.blogspot.co.uk/2012/07/the-most-expensive-piano-in-world-ever.html) for your next composition.
 
-## node.js
+# node.js
 
-Imagine popping into a coffee shop in the morning rush - the queue is 10 deep and everyone is frenzied for their caffine.
+Pop into a coffee shop in the morning rush - the queue is 10 deep and everyone is frenzied for their caffine.
 
 ### blocking
 
@@ -67,7 +67,6 @@ In the non-blocking model - TAKE THE NEXT ORDER
 [JavaScript](http://www.crockford.com/javascript/javascript.html) runs in web browsers.
 
 Using node - we can write the same code in browsers as on the server - and have it non-blocking.
-
 
 
 
