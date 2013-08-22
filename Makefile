@@ -1,4 +1,4 @@
-ANSIBLE_URL ?= https://raw.github.com/progrium/gitreceive/master/gitreceive
+QUARRY_URL ?= https://raw.github.com/binocarlos/quarry/master/bootstrap.sh
 
 # updates to the latest git so we can use password caching
 latestgit:
