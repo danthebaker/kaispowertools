@@ -8,6 +8,7 @@
 ## docker
 
  * [rethink and networking](http://nick.stinemat.es/#rethink-docker-technology)
+ * [best practices](http://crosbymichael.com/dockerfile-best-practices.html)
 
 ## mongo
 
