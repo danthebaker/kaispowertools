@@ -1,4 +1,4 @@
-developer: latestgit nodejs watch
+developer: latestgit watch
 
 # updates to the latest git so we can use password caching
 latestgit:
@@ -19,6 +19,15 @@ nodejs:
 	add-apt-repository -y ppa:chris-lea/node.js
 	apt-get update
 	apt-get install -y nodejs
+
+redis:
+	apt-get -y install redis-server
+
+mongo:
+	apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+	echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/10gen.list
+	apt-get update
+	apt-get -y install mongodb-10gen
 
 npmmodules:
 	npm install component -g
