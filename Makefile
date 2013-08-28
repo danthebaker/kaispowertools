@@ -39,5 +39,6 @@ mongo:
 	apt-get install -y mongodb-10gen
 
 watch:
+	rm -rf ~/watch
 	cd ~ && git clone https://github.com/visionmedia/watch.git
 	cd ~/watch && make install
