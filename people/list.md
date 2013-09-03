@@ -13,3 +13,5 @@
 ## SubStack
 
 ## Ryan Dahl
+
+## Jeff Lindsay

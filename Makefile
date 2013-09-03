@@ -1,7 +1,8 @@
 developer: latestgit watch redis mongo nodejs npmmodules
 
 # updates to the latest git so we can use password caching
-latestgit:
+latestgit: 
+	apt-get install -y python-software-properties make python
 	add-apt-repository ppa:voronov84/andreyv -y
 	apt-get update
 	apt-get install -y git
@@ -21,6 +22,7 @@ zeromq:
 	apt-get install -y libzmq3 libzmq3-dev
 
 nodejs:
+	@#wget -O - http://nodejs.org/dist/v0.8.23/node-v0.8.23-linux-x64.tar.gz | tar -C /usr --strip-components=1 -zxv
 	apt-get install -y python-software-properties make python
 	add-apt-repository -y ppa:chris-lea/node.js
 	apt-get update
@@ -37,6 +39,10 @@ mongo:
 	echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/10gen.list
 	apt-get update
 	apt-get install -y mongodb-10gen
+
+# from https://help.github.com/articles/generating-ssh-keys
+makekeys:
+	ssh-keygen -t rsa
 
 watch:
 	rm -rf ~/watch
