@@ -22,11 +22,11 @@ zeromq:
 	apt-get install -y libzmq3 libzmq3-dev
 
 nodejs:
-	@#wget -O - http://nodejs.org/dist/v0.8.23/node-v0.8.23-linux-x64.tar.gz | tar -C /usr --strip-components=1 -zxv
-	apt-get install -y python-software-properties make python
-	add-apt-repository -y ppa:chris-lea/node.js
-	apt-get update
-	apt-get install -y nodejs
+	@wget -O - http://nodejs.org/dist/v0.8.23/node-v0.8.23-linux-x64.tar.gz | tar -C /usr --strip-components=1 -zxv
+	@#apt-get install -y python-software-properties make python
+	@#add-apt-repository -y ppa:chris-lea/node.js
+	@#apt-get update
+	@#apt-get install -y nodejs
 
 npmmodules:
 	npm install component browserify uglify-js uglifycss -g
