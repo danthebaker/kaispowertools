@@ -1,8 +1,12 @@
-developer: latestgit watch redis mongo nodejs npmmodules
+developer: latestgit watch npmmodules
+
+all: basicpackages firewall zeromq redis mongo digger mon
+
+basicpackages:
+	apt-get install -y python-software-properties make python g++
 
 # updates to the latest git so we can use password caching
-latestgit: 
-	apt-get install -y python-software-properties make python
+latestgit: basicpackages
 	add-apt-repository ppa:voronov84/andreyv -y
 	apt-get update
 	apt-get install -y git
@@ -44,7 +48,32 @@ mongo:
 makekeys:
 	ssh-keygen -t rsa
 
+digger: nodejs
+	npm install -g digger
+
+hipache: nodejs
+	npm install -g hipache
+
+mon:
+	(mkdir /tmp/mon && cd /tmp/mon && curl -L# https://github.com/visionmedia/mon/archive/master.tar.gz | tar zx --strip 1 && make install)
+	(mkdir /tmp/mongroup && cd /tmp/mongroup && curl -L# https://github.com/jgallen23/mongroup/archive/master.tar.gz | tar zx --strip 1 && make install)
+
 watch:
 	rm -rf ~/watch
 	cd ~ && git clone https://github.com/visionmedia/watch.git
 	cd ~/watch && make install
+
+firewall:
+	mkdir -p /etc/firewall
+	mkdir -p /etc/firewall/custom
+	cd ~ && test -d iptables-boilerplate || git clone ${FIREWALL_REPO}
+	cp ~/iptables-boilerplate/firewall /etc/init.d/firewall
+	cp ~/iptables-boilerplate/etc/firewall/*.conf /etc/firewall
+	chmod 755 /etc/init.d/firewall
+	update-rc.d firewall defaults
+	# create a backup of the firewall rules and allow 22 and 80 and 443 through
+	cp /etc/firewall/services.conf /etc/firewall/services.default.conf
+	cat /etc/firewall/services.default.conf | sed -r 's/#((80|443)\/(tcp|udp))/\1/' > /etc/firewall/services.conf
+	cp /etc/firewall/firewall.conf /etc/firewall/firewall.default.conf
+	cat /etc/firewall/firewall.default.conf | sed -r 's/ipv4_forwarding=false/ipv4_forwarding=true/' > /etc/firewall/firewall.conf
+	service firewall restart
