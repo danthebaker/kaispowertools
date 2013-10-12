@@ -11,6 +11,9 @@ latestgit: basicpackages
 	apt-get update
 	apt-get install -y git
 
+gitshortcuts:
+	git config --global alias.ac '!git add -A && git commit'
+
 # configures git with our details
 gitconfig:
 	git config --global user.name "${GIT_NAME}"
@@ -30,8 +33,35 @@ nodejs:
 	add-apt-repository -y ppa:chris-lea/node.js
 	apt-get update
 	apt-get install -y nodejs
-	rm -rf /usr/local/node
-	ln -s /usr/local/nodejs /usr/local/node
+
+go:
+	add-apt-repository -y ppa:duh/golang
+	apt-get update
+	apt-get install -y golang
+
+docker: aufs
+	egrep -i "^docker" /etc/group || groupadd docker
+	usermod -aG docker git
+	usermod -aG docker quarry
+	curl https://get.docker.io/gpg | apt-key add -
+	echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list
+	apt-get update
+	apt-get install -y lxc-docker 
+	sleep 2 # give docker a moment i guess
+
+quarryfiles:
+	test -d ~/quarryfiles || git clone https://github.com/binocarlos/quarryfiles.git ~/quarryfiles	
+
+mongo: docker quarryfiles
+	cd ~/quarryfiles && ./builddockerfile mongo
+	docker run -d -p 27017:27017 -t quarrystack/mongo
+
+redis: docker quarryfiles
+	cd ~/quarryfiles && ./builddockerfile redis
+	docker run -d -p 6379:6379 -t quarrystack/redis
+
+aufs:
+	lsmod | grep aufs || modprobe aufs || apt-get install -y linux-image-extra-`uname -r`
 
 ab:
 	apt-get install -y apache2-utils
