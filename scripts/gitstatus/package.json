@@ -1,5 +1,5 @@
 {
-  "name": "links",
+  "name": "gitstatus",
   "private": true,
   "version": "0.0.0",
   "description": "symlink tools",
@@ -12,6 +12,7 @@
   "dependencies": {
     "wrench": "~1.5.1",
     "lodash": "~2.2.1",
-    "commander": "~2.0.0"
+    "commander": "~2.0.0",
+    "async": "~0.2.9"
   }
 }
