@@ -20,7 +20,6 @@ digger-ntp
 digger-radio
 digger-radio-for-angular
 digger-reception
-digger-redis
 digger-repeat-for-angular
 digger-security-guard
 digger-selector
@@ -46,7 +45,6 @@ miniware
 pageturner
 quarry
 quarryfiles
-storytimebuilds
 storytimeisland
 storytimeisland-book
 storytimeisland-dictionary

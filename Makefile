@@ -2,7 +2,7 @@ developer: latestgit ab watch nodejs npmmodules
 
 all: basicpackages
 
-showchanged:
+scanchanged:
 	./scripts/gitstatus/index.js changed /srv/projects -f ./mymodules.txt
 
 basicpackages:
