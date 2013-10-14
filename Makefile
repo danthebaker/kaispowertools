@@ -2,6 +2,9 @@ developer: latestgit ab watch nodejs npmmodules
 
 all: basicpackages
 
+showchanged:
+	./scripts/gitstatus/index.js changed /srv/projects -f ./mymodules.txt
+
 basicpackages:
 	apt-get install -y python-software-properties make python g++
 
