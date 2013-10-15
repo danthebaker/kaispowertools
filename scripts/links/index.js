@@ -10,9 +10,11 @@ program
   .version('0.0.1')
 
 program
-  .command('component [infolder]')
+  .command('component [infolder] [projects]')
   .description('symlink all binocarlos components in a folder')
-  .action(function(infolder){
+  .action(function(infolder, projects){
+
+    projects = projects || '/srv/projects';
 
     infolder = infolder.replace(/\/$/, '');
     infolder = infolder.replace(/\/components$/, '');
@@ -31,7 +33,7 @@ program
           else{
             componentname = name.replace(/^binocarlos-/, '');
             wrench.rmdirSyncRecursive(infolder + '/' + name, true);
-            fs.symlinkSync('/srv/projects/' + componentname, infolder + '/' + name)
+            fs.symlinkSync(projects + '/' + componentname, infolder + '/' + name)
             console.log(infolder + '/' + name + ' -> ' + '/srv/projects/' + componentname);  
           }
           
