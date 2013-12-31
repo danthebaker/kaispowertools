@@ -1,12 +1,10 @@
-developer: latestgit ab watch nodejs npmmodules
-
-all: basicpackages
+all: latestgit ab watch nodejs npmmodules
 
 scanchanged:
 	./scripts/gitstatus/index.js changed /srv/projects -f ./mymodules.txt
-
+	
 basicpackages:
-	apt-get install -y python-software-properties make python g++
+	apt-get install -y python-software-properties makesoftware-properties-common curl python g++
 
 # updates to the latest git so we can use password caching
 latestgit: basicpackages
@@ -14,16 +12,13 @@ latestgit: basicpackages
 	apt-get update
 	apt-get install -y git
 
-gitshortcuts:
-	git config --global alias.ac '!git add -A && git commit'
-
 # configures git with our details
 gitconfig:
 	git config --global user.name "${GIT_NAME}"
 	git config --global user.email "${GIT_EMAIL}"
 	git config --global credential.helper 'cache --timeout=3600'
 	git config --global push.default simple
-	git config --global alias.add-commit '!git add -A && git commit'
+	git config --global alias.ac '!git add -A && git commit'
 
 zeromq:
 	apt-get install -y python-software-properties make python
@@ -57,11 +52,11 @@ quarryfiles:
 
 mongo: docker quarryfiles
 	cd ~/quarryfiles && ./builddockerfile mongo
-	docker run -d -p 27017:27017 -t quarrystack/mongo
+	docker run -d -p 27017:27017 -t quarry/mongo
 
 redis: docker quarryfiles
 	cd ~/quarryfiles && ./builddockerfile redis
-	docker run -d -p 6379:6379 -t quarrystack/redis
+	docker run -d -p 6379:6379 -t quarry/redis
 
 aufs:
 	lsmod | grep aufs || modprobe aufs || apt-get install -y linux-image-extra-`uname -r`
