@@ -5,8 +5,6 @@ A collection of useful tools for Kai.
 
 This repo is totally for me and so I fragrantly litter my opinions throughout these tools.
 
-## setup box
-
 vagrant up
 
 ```
@@ -15,4 +13,3 @@ $ sudo make all
 $ GIT_EMAIL="kaiyadavenport@gmail.com" GIT_NAME="Kai Davenport" make gitconfig
 ```
 
-Copy the digger keys into ~/.ssh.
