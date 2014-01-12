@@ -71,6 +71,10 @@ npmmodules:
 	npm install component browserify uglify-js uglifycss -g
 	rm -rf /home/vagrant/tmp
 
+phantom:
+	apt-get install build-essential chrpath git-core libssl-dev libfontconfig1-dev
+	npm install phantomjs -g
+
 watch:
 	rm -rf ~/watch
 	cd ~ && git clone https://github.com/visionmedia/watch.git

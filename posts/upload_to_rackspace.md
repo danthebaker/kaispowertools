@@ -1,0 +1,1 @@
+http://thejaswi.info/tech/blog/2013/01/02/upload-a-directory-to-rackspace-cloud-files-from-command-line/
