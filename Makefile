@@ -7,7 +7,7 @@ basicpackages:
 	apt-get install -y python-software-properties make software-properties-common curl python g++
 
 # updates to the latest git so we can use password caching
-latestgit: basicpackages
+latestgit:
 	add-apt-repository ppa:voronov84/andreyv -y
 	apt-get update
 	apt-get install -y git
@@ -21,7 +21,6 @@ gitconfig: gitshortcuts
 
 gitshortcuts:
 	git config --global alias.ac '!git add -A && git commit'
-	git config --global alias.acq '!git add -A && git commit -m "." && git push localquarry master'
 
 zeromq:
 	apt-get install -y python-software-properties make python
