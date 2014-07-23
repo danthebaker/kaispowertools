@@ -1,8 +1,11 @@
-all: latestgit ab watch nodejs npmmodules
+all: latestgit nodejs npmmodules
 
 scanchanged:
 	./scripts/gitstatus/index.js changed /srv/projects -f ./mymodules.txt
-	
+
+simplepackages:
+	apt-get install -y python-software-properties
+
 basicpackages:
 	apt-get install -y python-software-properties make software-properties-common curl python g++
 
@@ -28,11 +31,17 @@ zeromq:
 	apt-get update
 	apt-get install -y libzmq3 libzmq3-dev
 
+etcdctl:
+	rm -rf /tmp/etcd-v0.3.0-linux-amd64.tar.gz
+	curl -L https://github.com/coreos/etcd/releases/download/v0.3.0/etcd-v0.3.0-linux-amd64.tar.gz -o /tmp/etcd-v0.3.0-linux-amd64.tar.gz
+	cd /tmp && gzip -dc etcd-v0.3.0-linux-amd64.tar.gz | tar -xof -
+	cp -f /tmp/etcd-v0.3.0-linux-amd64/etcdctl /usr/local/bin
+
 nodejs:
 	apt-get install -y python-software-properties make python
 	wget -qO /usr/local/bin/nave https://raw.github.com/isaacs/nave/master/nave.sh
 	chmod a+x /usr/local/bin/nave
-	nave usemain 0.10.24
+	nave usemain 0.10.29
 
 go:
 	add-apt-repository -y ppa:duh/golang

@@ -13,3 +13,8 @@ $ sudo make all
 $ GIT_EMAIL="kaiyadavenport@gmail.com" GIT_NAME="Kai Davenport" make gitconfig
 ```
 
+## remove git cache
+
+```
+git rm -r --cached builder/data/drivers
+```
