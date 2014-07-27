@@ -1,1 +1,0 @@
-http://code.divshot.com/bootstrap-theme-white-plum/

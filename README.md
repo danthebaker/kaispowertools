@@ -9,8 +9,8 @@ vagrant up
 
 ```
 $ cd /srv/projects/kaispowertools
-$ sudo make all
-$ GIT_EMAIL="kaiyadavenport@gmail.com" GIT_NAME="Kai Davenport" make gitconfig
+$ ./setupcore.sh
+$ ./setupkai.sh
 ```
 
 ## remove git cache
