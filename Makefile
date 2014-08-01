@@ -25,7 +25,10 @@ nodejs:
 	chmod a+x /usr/local/bin/nave
 	nave usemain 0.10.29
 
-go:
-	add-apt-repository -y ppa:duh/golang
-	apt-get update
-	apt-get install -y golang
+godeps:
+	apt-get install -y mercurial subversion bzr
+
+go: godeps
+	curl https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz | tar -C /usr/local -zx
+	./setupgopath.sh
+	
