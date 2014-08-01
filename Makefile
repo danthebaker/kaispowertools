@@ -24,3 +24,8 @@ nodejs:
 	wget -qO /usr/local/bin/nave https://raw.github.com/isaacs/nave/master/nave.sh
 	chmod a+x /usr/local/bin/nave
 	nave usemain 0.10.29
+
+go:
+	add-apt-repository -y ppa:duh/golang
+	apt-get update
+	apt-get install -y golang
