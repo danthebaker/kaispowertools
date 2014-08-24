@@ -1,4 +1,4 @@
-all: basicpackages latestgit nodejs
+all: basicpackages latestgit nodejs go
 
 basicpackages:
 	apt-get install -y python-software-properties make software-properties-common curl python g++
