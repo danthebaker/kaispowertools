@@ -1,4 +1,4 @@
-all: basicpackages latestgit nodejs go
+all: basicpackages latestgit nodejs go docker
 
 basicpackages:
 	apt-get install -y python-software-properties make software-properties-common curl python g++
@@ -32,3 +32,6 @@ go: godeps
 	curl https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz | tar -C /usr/local -zx
 	./setupgopath.sh
 	
+docker:
+	curl -sSL https://get.docker.io/ubuntu/ | sudo sh
+	sudo usermod -a -G docker vagrant
