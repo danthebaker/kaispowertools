@@ -5,7 +5,7 @@ basicpackages:
 
 devpackages:
 	apt-get install -y phantomjs
-	npm install 
+	npm install browserify -g
 
 # updates to the latest git so we can use password caching
 latestgit:
