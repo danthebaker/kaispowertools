@@ -1,7 +1,11 @@
-all: basicpackages latestgit nodejs go docker
+all: basicpackages latestgit nodejs go docker devpackages
 
 basicpackages:
 	apt-get install -y python-software-properties make software-properties-common curl python g++
+
+devpackages:
+	apt-get install -y phantomjs
+	npm install 
 
 # updates to the latest git so we can use password caching
 latestgit:
